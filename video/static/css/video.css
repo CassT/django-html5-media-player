@@ -1,0 +1,62 @@
+.collapsibleList li > input + * {
+    display: none;
+}
+
+.collapsibleList li > input:checked + * {
+    display: block;
+}
+
+.collapsibleList li > input {
+    display: none;
+}
+
+.collapsibleList label {
+    cursor: pointer;
+    display:block;
+    height:20px;
+    width:800px;
+    background-color:black;
+    color:white;
+    border:1px solid #2E2E2E;
+}
+
+.collapsibleList label:hover {
+    background-color:#2E2E2E;
+}
+
+ul.collapsibleList {
+    padding-left:5px;
+}
+
+.collapsibleList li {
+    list-style:none;
+    padding-left:0;
+}
+
+.collapsibleList li a {
+    display:block;
+    width:800px;
+    height:20px;
+    color:black;
+    text-decoration:none;
+    background-color:#CFCFA6;
+    border:1px solid #2E2E2E;
+}
+
+.collapsibleList li a:hover {
+    background-color:#2E2E2E;
+    color:white;
+}
+
+#vidlist input {
+    display:none;
+}
+
+#vidlist label {
+    color:white;
+}
+
+div#content {
+    background-color:black;
+    border-top:2px solid #2E2E2E;
+}
