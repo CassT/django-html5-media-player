@@ -58,5 +58,6 @@ ul.collapsibleList {
 
 div#content {
     background-color:black;
-    border-top:2px solid #2E2E2E;
+    position: absolute;
+    clip: rect(0px,800px,999999px,0px);
 }
