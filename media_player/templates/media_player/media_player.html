@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+
+{% block title %}
+    {{ mediatype }}
+{% endblock %}
+          
+{% block additional_headers %}
+    <link rel="stylesheet" href="/static/css/media_player.css">
+{% endblock %}
+{% block content %}
+    {% if mediatype == 'video'  %}
+        <video width="800" height="450" controls autoplay>
+            <source src="{{ mediasource }}" >
+        </video>
+    {% elif mediatype == 'audio' %}
+        <audio controls autoplay>
+            <source src="{{ mediasource }}">
+        </audio>
+    {% endif %}
+
+    <div id="medialist">
+        {% autoescape off %}
+            {{ medialisting }}
+        {% endautoescape %}
+    </div>
+{% endblock %} 
+
