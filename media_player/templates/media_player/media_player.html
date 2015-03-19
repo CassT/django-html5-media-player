@@ -13,9 +13,12 @@
             <source src="{{ mediasource }}" >
         </video>
     {% elif mediatype == 'audio' %}
-        <audio controls autoplay>
-            <source src="{{ mediasource }}">
-        </audio>
+        <img src="{{ imagesource }}" id="albumart">
+        <div id="audioplayer">
+            <audio controls autoplay>
+                <source src="{{ mediasource }}">
+            </audio>
+        </div>
     {% endif %}
 
     <div id="medialist">
