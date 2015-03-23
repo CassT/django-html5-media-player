@@ -4,6 +4,8 @@ from yattag import Doc
 from django.contrib.auth.decorators import login_required
 from models import MediaServer
 
+
+supported_formats = ['.mp3','.wav','.ogg','.mp4','.webm']
 url_paths = {'V':'/media_player/video/',
              'A':'/media_player/audio/'}
 def urlpath(server,path):
@@ -22,7 +24,7 @@ def display_directory(path, server, doc, n=0):
             for x in sorted(os.listdir(path)):
                 with tag('li'):
                     display_directory(os.path.join(path,x), server, doc, n=n+1)
-    else:
+    elif os.path.splitext(path)[1].lower() in supported_formats:
         with tag('a', href=urlpath(server,path), style='padding-left:'+str(n)+'em;'):
             text(os.path.splitext(os.path.basename(path))[0])
 
