@@ -5,26 +5,41 @@
 {% endblock %}
           
 {% block additional_headers %}
-    <link rel="stylesheet" href="/static/css/media_player.css">
+    {% load staticfiles %}
+        <link rel="stylesheet" href="{% static 'css/media_player.css' %}">
+        <script type="text/javascript" src="{% static 'js/media_player.js' %}"></script>
 {% endblock %}
 {% block content %}
+  <div id="mediacontainer">
+    <div id="heading">
+        <h1>{{ heading|default:mediatype.upper }}</h1>
+        <hr>
+    </div>
+
     {% if mediatype == 'video'  %}
-        <video width="800" height="450" controls autoplay>
+        <video controls autoplay>
             <source src="{{ mediasource }}" >
         </video>
     {% elif mediatype == 'audio' %}
-        <img src="{{ imagesource }}" id="albumart">
+        <div id="albumart">
+            <img src="{{ imagesource }}">
+        </div>
         <div id="audioplayer">
             <audio controls autoplay>
                 <source src="{{ mediasource }}">
             </audio>
         </div>
     {% endif %}
-
+    <div id="autoplayer">
+        <span style="color:white;">Autoplay:</span>
+        <input type="checkbox" name="autoplay" id="autotoggle" checked>
+        <input id="nextmedia" type="hidden" name="nextmedia" value="{{ nextmedia }}">
+    </div>
     <div id="medialist">
         {% autoescape off %}
             {{ medialisting }}
         {% endautoescape %}
     </div>
+  </div>
 {% endblock %} 
 
